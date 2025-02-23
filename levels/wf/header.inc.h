@@ -1,0 +1,11 @@
+extern const GeoLayout wf_area_1_geo[];
+extern const GeoLayout wf_area_1[];
+extern const Collision wf_area_1_collision[];
+extern const MacroObject wf_area_1_macro_objs[];
+extern Lights1 wf_dl_Cloud_001_lights;
+extern u8 wf_dl_SUPER_MARIO_64_51D4DA7F_0_2_all_i8[];
+extern Vtx wf_dl_Platform_mesh_layer_1_vtx_0[448];
+extern Gfx wf_dl_Platform_mesh_layer_1_tri_0[];
+extern Gfx mat_wf_dl_Cloud_001[];
+extern Gfx wf_dl_Platform_mesh_layer_1[];
+extern Gfx wf_dl_material_revert_render_settings[];

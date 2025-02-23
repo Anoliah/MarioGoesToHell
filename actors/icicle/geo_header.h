@@ -1,0 +1,10 @@
+extern const GeoLayout icicle_geo[];
+extern Lights1 icicle_Ice_layer1_lights;
+extern u8 icicle_icicle_ci8[];
+extern u8 icicle_icicle_ci8_pal_rgba16[];
+extern Vtx icicle_Cube_mesh_layer_1_vtx_0[83];
+extern Gfx icicle_Cube_mesh_layer_1_tri_0[];
+extern Gfx mat_icicle_Ice_layer1[];
+extern Gfx mat_revert_icicle_Ice_layer1[];
+extern Gfx icicle_Cube_mesh_layer_1[];
+extern Gfx icicle_material_revert_render_settings[];

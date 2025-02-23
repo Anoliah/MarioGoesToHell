@@ -207,7 +207,7 @@ void fade_into_special_warp(u32 arg, u32 color) {
 void load_level_init_text(u32 arg) {
     s32 gotAchievement;
     u32 dialogID = gCurrentArea->dialog[arg];
-
+	
     switch (dialogID) {
         case DIALOG_129:
             gotAchievement = save_file_get_flags() & SAVE_FLAG_HAVE_VANISH_CAP;
@@ -1313,7 +1313,8 @@ s32 lvl_set_current_level(UNUSED s16 initOrUpdate, s32 levelNum) {
     sWarpCheckpointActive = FALSE;
     gCurrLevelNum = levelNum;
     gCurrCourseNum = gLevelToCourseNumTable[levelNum - 1];
-
+	if (gCurrLevelNum == LEVEL_WF) return 0;
+		
     if (gCurrDemoInput != NULL || gCurrCreditsEntry != NULL || gCurrCourseNum == COURSE_NONE) {
         return FALSE;
     }

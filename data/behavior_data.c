@@ -3918,7 +3918,7 @@ const BehaviorScript bhvExplosion[] = {
     OR_INT(oFlags, (OBJ_FLAG_COMPUTE_DIST_TO_MARIO | OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE)),
     BILLBOARD(),
     SET_INTERACT_TYPE(INTERACT_DAMAGE),
-    SET_INT(oDamageOrCoinValue, 2),
+    SET_INT(oDamageOrCoinValue, 8),
     SET_INT(oIntangibleTimer, 0),
     SET_HITBOX_WITH_OFFSET(/*Radius*/ 150, /*Height*/ 150, /*Downwards offset*/ 150),
     SET_INT(oAnimState, OBJ_ANIM_STATE_INIT_ANIM),
@@ -6087,4 +6087,110 @@ const BehaviorScript bhvIntroScene[] = {
     END_LOOP(),
 };
 
+//Custom
+const BehaviorScript bhvKaizoBlock[] = {
+    BEGIN(OBJ_LIST_SURFACE),
+    OR_INT(oFlags, (OBJ_FLAG_COMPUTE_DIST_TO_MARIO | OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE)),
+    SET_HOME(),
+    LOAD_COLLISION_DATA(kaizoblock_collision),
+    CALL_NATIVE(bhv_kaizoblock_init),
+    BEGIN_LOOP(),
+        CALL_NATIVE(bhv_kaizoblock_loop),
+        CALL_NATIVE(load_object_collision_model),
+    END_LOOP(),
+};
 
+const BehaviorScript bhvKaizoBlockSpawner[] = {
+    BEGIN(OBJ_LIST_DEFAULT),
+    OR_INT(oFlags, OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE),
+    BEGIN_LOOP(),
+        CALL_NATIVE(bhv_kaizoblock_spawner_loop),
+    END_LOOP(),
+};
+
+const BehaviorScript bhvIcePlatform[] = {
+    BEGIN(OBJ_LIST_SURFACE),
+    OR_INT(oFlags, (OBJ_FLAG_COMPUTE_DIST_TO_MARIO | OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE)),
+    SET_HOME(),
+    LOAD_COLLISION_DATA(ice_platform_collision),
+    BEGIN_LOOP(),
+        CALL_NATIVE(bhv_ice_platform_loop),
+        CALL_NATIVE(load_object_collision_model),
+    END_LOOP(),
+};
+
+const BehaviorScript bhvIcicle[] = {
+    BEGIN(OBJ_LIST_SURFACE),
+    OR_INT(oFlags, OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE),
+    SET_INT(oDamageOrCoinValue, 8),
+    SET_INT(oInteractType, INTERACT_DAMAGE),
+    SET_HOME(),
+    LOAD_COLLISION_DATA(icicle_collision),
+    CALL_NATIVE(bhv_icicle_init),
+    BEGIN_LOOP(),
+        CALL_NATIVE(bhv_icicle_loop),
+        CALL_NATIVE(load_object_collision_model),
+    END_LOOP(),
+};
+
+const BehaviorScript bhvFishPNGSpawner[] = {
+    BEGIN(OBJ_LIST_DEFAULT),
+    OR_INT(oFlags, OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE),
+    CALL_NATIVE(bhv_fish_PNG_spawner_init),
+    BEGIN_LOOP(),
+        CALL_NATIVE(bhv_fish_PNG_spawner_loop),
+    END_LOOP(),
+};
+
+const BehaviorScript bhvFishPNG[] = {
+    BEGIN(OBJ_LIST_SURFACE),
+    OR_INT(oFlags, OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE),
+    SCALE(/*Unused*/ 0, /*Field*/ 150),
+    BEGIN_LOOP(),
+        CALL_NATIVE(bhv_fish_png_loop),
+    END_LOOP(),
+};
+
+const BehaviorScript bhvFakeHidden1upInPole[] = {
+    BEGIN(OBJ_LIST_LEVEL),
+    OR_INT(oFlags, (OBJ_FLAG_COMPUTE_ANGLE_TO_MARIO | OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE)),
+    BILLBOARD(),
+    SET_HITBOX_WITH_OFFSET(/*Radius*/ 30, /*Height*/ 30, /*Downwards offset*/ 0),
+    SET_FLOAT(oGraphYOffset, 30),
+    CALL_NATIVE(bhv_1up_common_init),
+    BEGIN_LOOP(),
+        SET_INT(oIntangibleTimer, 0),
+        CALL_NATIVE(bhv_fake_1up_hidden_in_pole_loop),
+    END_LOOP(),
+};
+
+const BehaviorScript bhvFakeHidden1upInPoleTrigger[] = {
+    BEGIN(OBJ_LIST_LEVEL),
+    OR_INT(oFlags, OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE),
+    SET_HITBOX(/*Radius*/ 100, /*Height*/ 100),
+    SET_INT(oIntangibleTimer, 0),
+    BEGIN_LOOP(),
+        CALL_NATIVE(bhv_fake_1up_hidden_in_pole_trigger_loop),
+    END_LOOP(),
+};
+
+const BehaviorScript bhvFakeHidden1upInPoleSpawner[] = {
+    BEGIN(OBJ_LIST_LEVEL),
+    OR_INT(oFlags, OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE),
+    BEGIN_LOOP(),
+        CALL_NATIVE(bhv_fake_1up_hidden_in_pole_spawner_loop),
+    END_LOOP(),
+};
+
+const BehaviorScript bhvCageToad[] = {
+    BEGIN(OBJ_LIST_SURFACE),
+    OR_INT(oFlags, (OBJ_FLAG_COMPUTE_DIST_TO_MARIO | OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE)),
+    SET_HOME(),
+    LOAD_COLLISION_DATA(cage_toad_collision),
+    SCALE(/*Unused*/ 0, /*Field*/ 35),
+    CALL_NATIVE(bhv_cage_toad_init),
+    BEGIN_LOOP(),
+        CALL_NATIVE(bhv_cage_toad_loop),
+        CALL_NATIVE(load_object_collision_model),
+    END_LOOP(),
+};

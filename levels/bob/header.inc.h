@@ -1,0 +1,16 @@
+extern const GeoLayout bob_area_1_geo[];
+extern const GeoLayout bob_area_1[];
+extern const Collision bob_area_1_collision[];
+extern const MacroObject bob_area_1_macro_objs[];
+extern Lights1 bob_dl_Death_lights;
+extern Lights1 bob_dl_Cloud_lights;
+extern u8 bob_dl_SUPER_MARIO_64_51D4DA7F_0_2_all_i8[];
+extern Vtx bob_dl_DeathPlane_mesh_layer_1_vtx_0[4];
+extern Gfx bob_dl_DeathPlane_mesh_layer_1_tri_0[];
+extern Vtx bob_dl_Platform_mesh_layer_1_vtx_0[448];
+extern Gfx bob_dl_Platform_mesh_layer_1_tri_0[];
+extern Gfx mat_bob_dl_Death[];
+extern Gfx mat_bob_dl_Cloud[];
+extern Gfx bob_dl_DeathPlane_mesh_layer_1[];
+extern Gfx bob_dl_Platform_mesh_layer_1[];
+extern Gfx bob_dl_material_revert_render_settings[];

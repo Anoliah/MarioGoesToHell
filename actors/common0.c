@@ -79,3 +79,15 @@ UNUSED static const u64 binid_17 = 17;
 
 #include "koopa_shell/model.inc.c"
 UNUSED static const u64 binid_18 = 18;
+
+#include "kaizoblock/model.inc.c"
+#include "kaizoblock/collision.inc.c"
+#include "ice_platform/model.inc.c"
+#include "ice_platform/collision.inc.c"
+#include "ice_platform_broken/model.inc.c"
+#include "icicle/model.inc.c"
+#include "icicle/collision.inc.c"
+#include "fish/model.inc.c"
+#include "cage_toad/model.inc.c"
+#include "cage_toad/collision.inc.c"
+#include "devil_toad/model.inc.c"

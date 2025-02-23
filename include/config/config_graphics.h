@@ -11,7 +11,7 @@
 #define INTRO_CREDIT
 
 // Spawns floombas on the title screen.
-#define INTRO_FLOOMBAS
+// #define INTRO_FLOOMBAS
 
 // Enables widescreen (16:9) support.
 #define WIDE
@@ -52,7 +52,7 @@
  * Also, this also disables anti-aliasing on Mario.
  * NOTE: Regarding performance, silhouette seems to lose 1-2 frames on console.
  */
-// #define SILHOUETTE 127
+#define SILHOUETTE 127
 
 // Use 64x64 quarter shadow textures (Vanilla are 16x16).
 #define HD_SHADOWS

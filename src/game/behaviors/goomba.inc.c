@@ -9,12 +9,12 @@
  * Hitbox for goomba.
  */
 static struct ObjectHitbox sGoombaHitbox = {
-    /* interactType:      */ INTERACT_BOUNCE_TOP,
+    /* interactType:      */ INTERACT_DAMAGE,
     /* downOffset:        */ 0,
     /* damageOrCoinValue: */ 1,
     /* health:            */ 0,
     /* numLootCoins:      */ 1,
-    /* radius:            */ 72,
+    /* radius:            */ 90,
     /* height:            */ 50,
     /* hurtboxRadius:     */ 42,
     /* hurtboxHeight:     */ 40,
@@ -116,9 +116,11 @@ void bhv_goomba_init(void) {
     obj_set_hitbox(o, &sGoombaHitbox);
 
     o->oDrawingDistance = sGoombaProperties[o->oGoombaSize].drawDistance;
-    o->oDamageOrCoinValue = sGoombaProperties[o->oGoombaSize].damage;
+    o->oDamageOrCoinValue = 8;
 
     o->oGravity = -8.0f / 3.0f * o->oGoombaScale;
+
+    o->oFlameThowerTimeRemaining = 0;
 
 #ifdef FLOOMBAS
     if (o->oIsFloomba) {
@@ -142,7 +144,8 @@ static void goomba_begin_jump(void) {
 
     o->oAction = GOOMBA_ACT_JUMP;
     o->oForwardVel = 0.0f;
-    o->oVelY = 50.0f / 3.0f * o->oGoombaScale;
+    o->oVelY = 30.0f;
+    o->oFlameThowerTimeRemaining = 70;
 }
 
 /**
@@ -167,7 +170,7 @@ static void mark_goomba_as_dead(void) {
 static void goomba_act_walk(void) {
     treat_far_home_as_mario(1000.0f);
 
-    obj_forward_vel_approach(o->oGoombaRelativeSpeed * o->oGoombaScale, 0.4f);
+    obj_forward_vel_approach(o->oGoombaRelativeSpeed * o->oGoombaScale, 40.0f);
 
     // If walking fast enough, play footstep sounds
     if (o->oGoombaRelativeSpeed > 4.0f / 3.0f) {
@@ -192,7 +195,7 @@ static void goomba_act_walk(void) {
 
         if (!(o->oGoombaTurningAwayFromWall =
                   obj_bounce_off_walls_edges_objects(&o->oGoombaTargetYaw))) {
-            if (o->oDistanceToMario < 500.0f) {
+            if (o->oDistanceToMario < 1000.0f) {
                 // If close to mario, begin chasing him. If not already chasing
                 // him, jump first
 
@@ -201,7 +204,13 @@ static void goomba_act_walk(void) {
                 }
 
                 o->oGoombaTargetYaw = o->oAngleToMario;
-                o->oGoombaRelativeSpeed = 20.0f;
+                o->oGoombaRelativeSpeed = 60.0f;
+                if (o->oFlameThowerTimeRemaining < 64) {
+                    struct Object *flame = spawn_object_relative(0, 0, 0, 0, o, MODEL_RED_FLAME, bhvFlamethrowerFlame);
+                    flame->oForwardVel = -1;
+                }
+                
+
             } else {
                 // If mario is far away, walk at a normal pace, turning randomly
                 // and occasionally jumping
@@ -222,7 +231,11 @@ static void goomba_act_walk(void) {
             }
         }
 
-        cur_obj_rotate_yaw_toward(o->oGoombaTargetYaw, 0x200);
+        if (o->oFlameThowerTimeRemaining > 0) {
+            o->oFlameThowerTimeRemaining--;
+        }
+
+        cur_obj_rotate_yaw_toward(o->oGoombaTargetYaw, 0x600);
     }
 }
 
@@ -243,6 +256,7 @@ static void goomba_act_attacked_mario(void) {
         goomba_begin_jump();
         o->oGoombaTargetYaw = o->oAngleToMario;
         o->oGoombaTurningAwayFromWall = FALSE;
+        cur_obj_play_sound_2(SOUND_GENERAL_BOWSER_BOMB_EXPLOSION);
     }
 }
 

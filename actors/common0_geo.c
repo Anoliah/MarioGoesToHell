@@ -27,3 +27,11 @@
 #include "metal_box/geo.inc.c"
 #include "exclamation_box_outline/geo.inc.c"
 #include "koopa_shell/geo.inc.c"
+
+#include "kaizoblock/geo.inc.c"
+#include "ice_platform/geo.inc.c"
+#include "ice_platform_broken/geo.inc.c"
+#include "icicle/geo.inc.c"
+#include "fish/geo.inc.c"
+#include "cage_toad/geo.inc.c"
+#include "devil_toad/geo.inc.c"

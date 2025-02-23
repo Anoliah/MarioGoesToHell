@@ -29,13 +29,23 @@ void bhv_recovery_heart_loop(void) {
             o->oSpinningHeartTotalSpin = 0;
         }
     }
-
+    
     if ((o->oSpinningHeartTotalSpin += o->oAngleVelYaw) >= 0x10000) {
-        gMarioState->healCounter += 4;
+        if (o->oBehParams2ndByte == 0) {
+            gMarioState->healCounter += 4;
+        }
+        else {
+            gMarioState->hurtCounter += 50;
+        }
 #ifdef BREATH_METER
         gMarioState->breathCounter += 4;
 #endif
         o->oSpinningHeartTotalSpin -= 0x10000;
+    }
+
+    if (gMarioState->isDead) {
+        o->oAngleVelYaw = 400;
+        o->oSpinningHeartTotalSpin = 0;
     }
 
     o->oFaceAngleYaw += o->oAngleVelYaw;

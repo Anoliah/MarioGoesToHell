@@ -36,6 +36,8 @@ struct ExclamationBoxContents sExclamationBoxContents[] = {
     { EXCLAMATION_BOX_BP_STAR_4,           0, 3, MODEL_STAR,             bhvSpawnedStar           },
     { EXCLAMATION_BOX_BP_STAR_5,           0, 4, MODEL_STAR,             bhvSpawnedStar           },
     { EXCLAMATION_BOX_BP_STAR_6,           0, 5, MODEL_STAR,             bhvSpawnedStar           },
+    { EXCLAMATION_BOX_BP_EXPLOSION,        0, 0, MODEL_EXPLOSION,        bhvExplosion             },
+    { EXCLAMATION_BOX_BP_CHUCKYA,          0, 0, MODEL_CHUCKYA,          bhvChuckya               },
     { EXCLAMATION_BOX_BP_NULL,             0, 0, MODEL_NONE,             NULL                     }
 };
 
@@ -131,6 +133,11 @@ void exclamation_box_spawn_contents(struct ExclamationBoxContents *contentsList,
             OR_BPARAM1(o->oBehParams, contentsList->behParams);
             if (contentsList->model == MODEL_STAR) {
                 o->oFlags |= OBJ_FLAG_PERSISTENT_RESPAWN;
+            }
+            else if (contentsList->model == MODEL_EXPLOSION) {
+                contentsObj->oPosX = gMarioObject->oPosX;
+                contentsObj->oPosY = gMarioObject->oPosY;
+                contentsObj->oPosZ = gMarioObject->oPosZ;
             }
             break;
         }

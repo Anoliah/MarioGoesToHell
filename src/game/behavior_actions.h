@@ -550,6 +550,23 @@ void bhv_dust_smoke_loop(void);
 void bhv_yoshi_loop(void);
 void bhv_volcano_trap_loop(void);
 
+//Custom
+void bhv_kaizoblock_spawner_loop(void);
+void bhv_kaizoblock_init(void);
+void bhv_kaizoblock_loop(void);
+void bhv_ice_platform_loop(void);
+void bhv_icicle_init(void);
+void bhv_icicle_loop(void);
+void bhv_fish_PNG_spawner_init(void);
+void bhv_fish_PNG_spawner_loop(void);
+void bhv_fish_png_loop(void);
+void bhv_fake_1up_interact(void);
+void bhv_fake_1up_hidden_in_pole_trigger_loop(void);
+void bhv_fake_1up_hidden_in_pole_spawner_loop(void);
+void bhv_fake_1up_hidden_in_pole_loop(void);
+void bhv_cage_toad_init(void);
+void bhv_cage_toad_loop(void);
+
 Gfx *geo_move_mario_part_from_parent(s32 callContext, UNUSED struct GraphNode *node, Mat4 mtx);
 
 // Bowser

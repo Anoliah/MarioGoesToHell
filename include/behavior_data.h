@@ -541,4 +541,16 @@ extern const BehaviorScript bhvEndBirds2[];
 extern const BehaviorScript bhvIntroScene[];
 extern const BehaviorScript bhvUnusedFakeStar[];
 
+//Custom
+extern const BehaviorScript bhvKaizoBlock[];
+extern const BehaviorScript bhvKaizoBlockSpawner[];
+extern const BehaviorScript bhvIcePlatform[];
+extern const BehaviorScript bhvIcicle[];
+extern const BehaviorScript bhvFishPNGSpawner[];
+extern const BehaviorScript bhvFishPNG[];
+extern const BehaviorScript bhvFakeHidden1upInPoleTrigger[];
+extern const BehaviorScript bhvFakeHidden1upInPoleSpawner[];
+extern const BehaviorScript bhvFakeHidden1upInPole[];
+extern const BehaviorScript bhvCageToad[];
+
 #endif // BEHAVIOR_DATA_H

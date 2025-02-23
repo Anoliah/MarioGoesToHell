@@ -603,7 +603,7 @@
 #define /*0x108*/ oGoombaTurningAwayFromWall OBJECT_FIELD_S32(0x20)
 #define /*0x10C*/ oGoombaRelativeSpeed       OBJECT_FIELD_F32(0x21)
 #ifdef FLOOMBAS
-#define /*0x110*/ oIsFloomba OBJECT_FIELD_S32(0x22)
+#define /*0x110*/ oIsFloomba OBJECT_FIELD_S32(0x23)
 
 #ifdef INTRO_FLOOMBAS
 #define /*0x1AC*/ oZoomCounter OBJECT_FIELD_S32(0x49)
@@ -1254,6 +1254,11 @@
 #define /*0x0FC*/ oYoshiChosenHome OBJECT_FIELD_S32(0x1D)
 #define /*0x100*/ oYoshiTargetYaw  OBJECT_FIELD_S32(0x1E)
 
+/* KaizoBlock Spawner */
+#define /*0x0F4*/ oBlockSpawned OBJECT_FIELD_S32(0x1B)
+
+/* FishPNG Spawner */
+#define /*0x0F4*/ oFishSpawnTimer OBJECT_FIELD_S32(0x1B)
 
 /*Custom general defines:
 

@@ -195,4 +195,28 @@ extern const GeoLayout test_platform_geo[];
 extern const Gfx unknown_seg8_dl_08026260[];
 extern const Collision unknown_seg8_collision_080262F8[];
 
+#include "kaizoblock/geo_header.h"
+
+#include "kaizoblock/collision_header.h"
+
+#include "goomba/geo_header.h"
+
+#include "ice_platform/geo_header.h"
+
+#include "ice_platform/collision_header.h"
+
+#include "ice_platform_broken/geo_header.h"
+
+#include "icicle/geo_header.h"
+
+#include "icicle/collision_header.h"
+
+#include "fish/geo_header.h"
+
+#include "cage_toad/geo_header.h"
+
+#include "cage_toad/collision_header.h"
+
+#include "devil_toad/geo_header.h"
+
 #endif

@@ -780,3 +780,11 @@ UNUSED s32 debug_sequence_tracker(s16 debugInputSequence[]) {
 #include "behaviors/treasure_chest.inc.c"
 #include "behaviors/mips.inc.c"
 #include "behaviors/yoshi.inc.c"
+
+//Custom
+#include "behaviors/kaizoblock_spawner.inc.c"
+#include "behaviors/kaizoblock.inc.c"
+#include "behaviors/ice_platform.inc.c"
+#include "behaviors/icicle.inc.c"
+#include "behaviors/fish_png.inc.c"
+#include "behaviors/cage_toad.inc.c"

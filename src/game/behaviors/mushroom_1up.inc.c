@@ -4,19 +4,23 @@ void bhv_1up_interact(void) {
     if (obj_check_if_collided_with_object(o, gMarioObject)) {
         play_sound(SOUND_GENERAL_COLLECT_1UP, gGlobalSoundSource);
 #ifdef MUSHROOMS_HEAL
-        gMarioState->healCounter   = 31;
+            gMarioState->healCounter = 31;
 #ifdef BREATH_METER
-        gMarioState->breathCounter = 31;
+            gMarioState->breathCounter = 31;
 #endif
 #endif
-        gMarioState->numLives++;
+            gMarioState->numLives++;
 #ifdef SAVE_NUM_LIVES
-        save_file_set_num_lives(gMarioState->numLives);
+            save_file_set_num_lives(gMarioState->numLives);
 #endif
-        o->activeFlags = ACTIVE_FLAG_DEACTIVATED;
+            obj_mark_for_deletion(o);
 #if ENABLE_RUMBLE
-        queue_rumble_data(5, 80);
+            queue_rumble_data(5, 80);
 #endif
+     }
+
+    if (gMarioState->isDead) {
+        obj_mark_for_deletion(o);
     }
 }
 
@@ -289,13 +293,10 @@ void bhv_1up_hidden_trigger_loop(void) {
 void bhv_1up_hidden_in_pole_loop(void) {
     switch (o->oAction) {
         case MUSHROOM_ACT_INIT:
-            o->header.gfx.node.flags |= GRAPH_RENDER_INVISIBLE;
-            if (o->o1UpHiddenTimesTriggered == o->oBehParams2ndByte) {
-                o->oVelY = 40.0f;
-                o->oAction = MUSHROOM_ACT_LOOP_IN_AIR;
-                o->header.gfx.node.flags &= ~GRAPH_RENDER_INVISIBLE;
-                play_sound(SOUND_GENERAL2_1UP_APPEAR, gGlobalSoundSource);
-            }
+            o->oVelY = 40.0f;
+            o->oAction = MUSHROOM_ACT_LOOP_IN_AIR;
+            o->header.gfx.node.flags &= ~GRAPH_RENDER_INVISIBLE;
+            play_sound(SOUND_GENERAL2_1UP_APPEAR, gGlobalSoundSource);
             break;
 
         case MUSHROOM_ACT_MOVING:
@@ -332,13 +333,92 @@ void bhv_1up_hidden_in_pole_trigger_loop(void) {
 }
 
 void bhv_1up_hidden_in_pole_spawner_loop(void) {
-    if (is_point_within_radius_of_mario(o->oPosX, o->oPosY, o->oPosZ, 700)) {
-        s8 i;
+    if (is_point_within_radius_of_mario(o->oPosX, o->oPosY, o->oPosZ, 300) && (o->oBlockSpawned != 1)) {
         spawn_object_relative(2, 0, 50, 0, o, MODEL_1UP, bhvHidden1upInPole);
-        for (i = 0; i < 2; i++) {
-            spawn_object_relative(0, 0, i * -200, 0, o, MODEL_NONE, bhvHidden1upInPoleTrigger);
+        o->oBlockSpawned = 1;
+    }
+    if (gMarioState->isDead) {
+        o->oBlockSpawned = 0;
+    }
+}
+
+//CUSTOM
+
+void bhv_fake_1up_interact(void) {
+    if (obj_check_if_collided_with_object(o, gMarioObject)) {
+        play_sound(SOUND_GENERAL_COLLECT_1UP, gGlobalSoundSource);
+        gMarioState->health = 0;
+        obj_mark_for_deletion(o);
+    }
+    if (gMarioState->isDead) {
+        obj_mark_for_deletion(o);
+    }
+}
+
+void fake_pole_1up_move_towards_mario(void) {
+    f32 dx = gMarioObject->header.gfx.pos[0] - o->oPosX;
+    f32 dy = gMarioObject->header.gfx.pos[1] - o->oPosY + 120.0f;
+    f32 dz = gMarioObject->header.gfx.pos[2] - o->oPosZ;
+    s16 targetPitch = atan2s(sqrtf(sqr(dx) + sqr(dz)), dy);
+
+    obj_turn_toward_object(o, gMarioObject, O_MOVE_ANGLE_YAW_INDEX, 0x1000);
+
+    o->oMoveAnglePitch = approach_s16_symmetric(o->oMoveAnglePitch, targetPitch, 0x1000);
+    o->oVelY = sins(o->oMoveAnglePitch) * 11.0f;
+    o->oForwardVel = coss(o->oMoveAnglePitch) * 25.0f;
+
+    bhv_fake_1up_interact();
+}
+
+void bhv_fake_1up_hidden_in_pole_trigger_loop(void) {
+    if (obj_check_if_collided_with_object(o, gMarioObject)) {
+        struct Object* nearestHidden1upInPole = cur_obj_nearest_object_with_behavior(bhvFakeHidden1upInPole);
+        if (nearestHidden1upInPole != NULL) {
+            nearestHidden1upInPole->o1UpHiddenTimesTriggered++;
         }
 
         o->activeFlags = ACTIVE_FLAG_DEACTIVATED;
+    }
+}
+
+void bhv_fake_1up_hidden_in_pole_spawner_loop(void) {
+    if (is_point_within_radius_of_mario(o->oPosX, o->oPosY, o->oPosZ, 300) && (o->oBlockSpawned != 1)) {
+        spawn_object_relative(2, 0, 50, 0, o, MODEL_1UP, bhvFakeHidden1upInPole);
+        o->oBlockSpawned = 1;
+    }
+    if (gMarioState->isDead) {
+        o->oBlockSpawned = 0;
+    }
+}
+
+void bhv_fake_1up_hidden_in_pole_loop(void) {
+    switch (o->oAction) {
+    case MUSHROOM_ACT_INIT:
+        o->header.gfx.node.flags |= GRAPH_RENDER_INVISIBLE;
+        o->oVelY = 40.0f;
+        o->oAction = MUSHROOM_ACT_LOOP_IN_AIR;
+        o->header.gfx.node.flags &= ~GRAPH_RENDER_INVISIBLE;
+        play_sound(SOUND_GENERAL2_1UP_APPEAR, gGlobalSoundSource);
+        break;
+
+    case MUSHROOM_ACT_MOVING:
+        fake_pole_1up_move_towards_mario();
+        object_step();
+        break;
+
+    case MUSHROOM_ACT_LOOP_IN_AIR:
+        object_step();
+        if (o->oTimer > 17) {
+            spawn_object(o, MODEL_NONE, bhvSparkleSpawn);
+        }
+
+        one_up_loop_in_air();
+
+        if (o->oTimer == 37) {
+            cur_obj_become_tangible();
+            o->oAction = MUSHROOM_ACT_MOVING;
+            o->oForwardVel = 10.0f;
+        }
+        break;
     }
 }

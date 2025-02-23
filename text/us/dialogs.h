@@ -13,24 +13,31 @@
 #endif
 
 DEFINE_DIALOG(DIALOG_000, 1, 6, 30, 200, _("\
-Wow! You're smack in the\n\
-middle of the battlefield.\n\
-You'll find the Power\n\
-Stars that Bowser stole\n\
-inside the painting\n\
-worlds.\n\
-First, talk to the\n\
-Bob-omb Buddy. (Press [B]\n\
-to talk.) He'll certainly\n\
-help you out, and so will\n\
-his " COMRADES " in other\n\
-areas.\n\
-To read signs, stop, face\n\
-them and press [B]. Press [A]\n\
-or [B] to scroll ahead. You\n\
-can talk to some other\n\
-characters by facing them\n\
-and pressing [B]."))
+Hello Mario, it's me.\n\
+\n\
+\n\
+\n\
+\n\
+\n\
+God.\n\
+\n\
+\n\
+\n\
+\n\
+\n\
+Due to your arrogance \n\
+I've decided to send \n\
+you to hell. The lowest \n\
+layer to be specific.\n\
+Here you will freeze for\n\
+all eternity.\n\
+However if you can prove\n\
+your humility by enduring\n\
+this punishment and \n\
+climbing your way back\n\
+up to heaven, then I\n\
+will be willing to\n\
+overlook your blasphemy."))
 
 DEFINE_DIALOG(DIALOG_001, 1, 4, 95, 200, _("\
 Watch out! If you wander\n\
@@ -220,14 +227,35 @@ Do you want to Save?\n\
 //You Bet//Not Now"))
 
 DEFINE_DIALOG(DIALOG_015, 1, 4, 30, 200, _("\
-You can punch enemies to\n\
-knock them down. Press [A]\n\
-to jump, [B] to punch.\n\
-Press [A] then [B] to Kick.\n\
-To pick something up,\n\
-press [B], too. To throw\n\
-something you're holding,\n\
-press [B] again."))
+Mario Goes to Hell\n\
+\n\
+by Anoliah\n\
+\n\
+This hack was made\n\
+for Simplefilps' Troll\n\
+Hack Competition 2023\n\
+\n\
+It features two short\n\
+linear levels filled\n\
+with various trolls.\n\
+\n\
+NOTE:\n\
+Don't try to climb\n\
+the decorative parts\n\
+of the stage. I am \n\
+not liable for any GBJ\n\
+that may occur.\n\
+\n\
+\n\
+Also this hack features\n\
+some of the cool patches\n\
+available in HackerSM64,\n\
+so special thanks\n\
+to everyone who worked\n\
+on HackerSM64.\n\
+\n\
+\n\
+Enter the pipe to begin."))
 
 DEFINE_DIALOG(DIALOG_016, 1, 3, 30, 200, _("\
 Hop on the shiny shell and\n\
@@ -333,29 +361,33 @@ Stars.\n\
 Bwa ha ha!"))
 
 DEFINE_DIALOG(DIALOG_030, 1, 6, 30, 200, _("\
-Hello! The Lakitu Bros.,\n\
-cutting in with a live\n\
-update on Mario's\n\
-progress. He's about to\n\
-learn a technique for\n\
-sneaking up on enemies.\n\
-The trick is this: He has\n\
-to walk very slowly in\n\
-order to walk quietly.\n\
+I have to admit, I\n\
+really didn't expect you\n\
+to make it this far,\n\
+Mario.\n\
+Welcome to the upper\n\
+layers of hell, reserved \n\
+for the average, everyday\n\
+sinner. You can even see\n\
+some of them up ahead.\n\
 \n\
 \n\
 \n\
-And wrapping up filming\n\
-techniques reported on\n\
-earlier, you can take a\n\
-look around using [C]> and\n\
-[C]<. Press [C]| to view the\n\
-action from a distance.\n\
-When you can't move the\n\
-camera any farther, the\n\
-buzzer will sound. This is\n\
-the Lakitu Bros.,\n\
-signing off."))
+Look above you and\n\
+you'll see that I've\n\
+sent a single spider\n\
+to escort you back\n\
+to heaven.\n\
+Should you make it\n\
+high enough, simply\n\
+climb the spider's\n\
+string all the way\n\
+to the top.\n\
+There's plenty of traps\n\
+in this part of hell\n\
+as well. Stay away \n\
+from any 『demons』\n\
+you may encounter..."))
 
 DEFINE_DIALOG(DIALOG_031, 1, 5, 30, 200, _("\
 No way! You beat me...\n\
@@ -398,39 +430,15 @@ around. Now, head for\n\
 the castle."))
 
 DEFINE_DIALOG(DIALOG_034, 1, 6, 30, 200, _("\
-Good afternoon. The\n\
-Lakitu Bros., here,\n\
-reporting live from just\n\
-outside the Princess's\n\
-castle.\n\
+You have to appriciate\n\
+the restraint in not\n\
+using any fake quicksand\n\
+textures, right?\n\
 \n\
-Mario has just arrived\n\
-on the scene, and we'll\n\
-be filming the action live\n\
-as he enters the castle\n\
-and pursues the missing\n\
-Power Stars.\n\
-As seasoned cameramen,\n\
-we'll be shooting from the\n\
-recommended angle, but\n\
-you can change the\n\
-camera angle by pressing\n\
-the [C] Buttons.\n\
-If we can't adjust the\n\
-view any further, we'll\n\
-buzz. To take a look at\n\
-the surroundings, stop\n\
-and press [C]^.\n\
 \n\
-Press [A] to resume play.\n\
-Switch camera modes with\n\
-the [R] Button. Signs along\n\
-the way will review these\n\
-instructions.\n\
-\n\
-For now, reporting live,\n\
-this has been the\n\
-Lakitu Bros."))
+Speaking of textures,\n\
+seen any new ones\n\
+lately?"))
 
 DEFINE_DIALOG(DIALOG_035, 1, 5, 30, 200, _("\
 There are four camera, or\n\
@@ -505,9 +513,9 @@ course.\n\
 //--The Big Bob-omb"))
 
 DEFINE_DIALOG(DIALOG_040, 1, 3, 30, 200, _("\
-Warning!\n\
-Cold, Cold Crevasse\n\
-Below!"))
+BBQ Mushroom\n\
+\n\
+:)"))
 
 DEFINE_DIALOG(DIALOG_041, 1, 3, 30, 200, _("\
 I win! You lose!\n\
@@ -519,29 +527,19 @@ Quick.\n\
 Better luck next time!"))
 
 DEFINE_DIALOG(DIALOG_042, 1, 4, 30, 200, _("\
-Caution! Narrow Bridge!\n\
-Cross slowly!\n\
+This one has the shell.\n\
 \n\
 \n\
-You can jump to the edge\n\
-of the cliff and hang on,\n\
-and you can climb off the\n\
-edge if you move slowly.\n\
-When you want to let go,\n\
-either press [Z] or press\n\
-the Control Stick in the\n\
-direction of Mario's back.\n\
-To climb up, press Up on\n\
-the Control Stick. To\n\
-scurry up quickly, press\n\
-the [A] Button."))
+:)"))
 
 DEFINE_DIALOG(DIALOG_043, 1, 5, 30, 200, _("\
-If you jump and hold the\n\
-[A] Button, you can hang on\n\
-to some objects overhead.\n\
-It's the same as grabbing\n\
-a flying bird!"))
+Just a heads up before\n\
+you start, but you should\n\
+know that you can use the\n\
+d-pad for more precise\n\
+camera movement.\n\
+This can be very useful\n\
+when lining up jumps."))
 
 DEFINE_DIALOG(DIALOG_044, 1, 5, 95, 200, _("\
 Whooo's there? Whooo\n\
@@ -600,66 +598,30 @@ Hi! I'll prepare the\n\
 cannon for you!"))
 
 DEFINE_DIALOG(DIALOG_048, 1, 4, 30, 200, _("\
-Snow Mountain Summit\n\
-Watch for slippery\n\
-conditions! Please enter\n\
-the cottage first."))
+Please go this way."))
 
-DEFINE_DIALOG(DIALOG_049, 1, 5, 30, 200, _("\
-Remember that tricky Wall\n\
-Kick jump? It's a\n\
-technique you'll have to\n\
-master in order to reach\n\
-high places.\n\
-Use it to jump from wall\n\
-to wall. Press the\n\
-Control Stick in the\n\
-direction you want to\n\
-bounce to gain momentum.\n\
-Practice makes perfect!"))
+DEFINE_DIALOG(DIALOG_049, 1, 4, 30, 200, _("\
+Please don't go this way."))
 
-DEFINE_DIALOG(DIALOG_050, 1, 4, 30, 200, _("\
-Hold [Z] to crouch and\n\
-slide down a slope.\n\
-Or press [Z] while in the\n\
-air to Pound the Ground!\n\
-If you stop, crouch, then\n\
-jump, you'll do a\n\
-Backward Somersault!\n\
-Got that?\n\
-There's more. Crouch and\n\
-then jump to do a\n\
-Long Jump! Or crouch and\n\
-walk to...never mind."))
-
-DEFINE_DIALOG(DIALOG_051, 1, 6, 30, 200, _("\
-Climbing's easy! When you\n\
-jump at trees, poles or\n\
-pillars, you'll grab them\n\
-automatically. Press [A] to\n\
-jump off backward.\n\
+DEFINE_DIALOG(DIALOG_050, 1, 3, 30, 200, _("\
+Careful!\n\
 \n\
-To rotate around the\n\
-object, press Right or\n\
-Left on the Control Stick.\n\
-When you reach the top,\n\
-press Up to do a\n\
-handstand!\n\
-Jump off from the\n\
-handstand for a high,\n\
-stylin' dismount."))
+Watch for broken ice!"))
 
-DEFINE_DIALOG(DIALOG_052, 1, 5, 30, 200, _("\
-Stop and press [Z] to\n\
-crouch, then press [A]\n\
-to do a high, Backward\n\
-Somersault!\n\
+DEFINE_DIALOG(DIALOG_051, 1, 5, 30, 200, _("\
+Enter the pipe to go up\n\
+to the next layer.\n\
+You're half way there!\n\
 \n\
-To perform a Side\n\
-Somersault, run, do a\n\
-sharp U-turn and jump.\n\
-You can catch lots of\n\
-air with both jumps."))
+\n\
+Also don't try to jump\n\
+down into the pit below.\n\
+There isn't anything down\n\
+there and you will be\n\
+stuck."))
+
+DEFINE_DIALOG(DIALOG_052, 1, 1, 30, 200, _("\
+I fucking told you bro."))
 
 DEFINE_DIALOG(DIALOG_053, 1, 5, 30, 200, _("\
 Sometimes, if you pass\n\

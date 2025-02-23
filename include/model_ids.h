@@ -572,4 +572,13 @@
 #define MODEL_VCUTM_WARP_PIPE                     MODEL_LEVEL_GEOMETRY_16   // warp_pipe_geo
 #define MODEL_CASTLE_GROUNDS_WARP_PIPE            MODEL_LEVEL_GEOMETRY_16   // warp_pipe_geo
 
+//Custom
+#define MODEL_KAIZOBLOCK                          0xF2
+#define MODEL_ICE_PLATFORM						  0xF3
+#define MODEL_ICE_PLATFORM_BROKEN				  0xF4
+#define MODEL_ICICLE							  0xF5
+#define MODEL_FISH_PNG							  0xF6
+#define MODEL_CAGE_TOAD							  0xF7
+#define MODEL_DEVIL_TOAD						  0xF8
+
 #endif // MODEL_IDS_H
